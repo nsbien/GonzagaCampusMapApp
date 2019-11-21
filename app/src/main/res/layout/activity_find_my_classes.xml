@@ -40,10 +40,10 @@
         android:layout_rowSpan="1"
         android:layout_columnSpan="2"
         android:layout_columnWeight="3"
-        android:fontFamily="sans-serif-light"
+        android:fontFamily="sans-serif-condensed-medium"
         android:background="@color/colorPrimary"
         android:textColor="@color/colorWhite"
-        android:textSize="14sp"
+        android:textSize="18sp"
         android:text="COURSE NAME" />
 
     <TextView
@@ -54,11 +54,11 @@
         android:layout_height="wrap_content"
         android:layout_rowSpan="1"
         android:layout_columnSpan="1"
-        android:layout_columnWeight="2"
-        android:fontFamily="sans-serif-light"
+        android:layout_columnWeight="3"
+        android:fontFamily="sans-serif-condensed-medium"
         android:background="@color/colorPrimary"
         android:textColor="@color/colorWhite"
-        android:textSize="14sp"
+        android:textSize="18sp"
         android:text="BUILDING" />
 
     <TextView
@@ -70,10 +70,10 @@
         android:layout_rowSpan="1"
         android:layout_columnSpan="1"
         android:layout_columnWeight="1"
-        android:fontFamily="sans-serif-light"
+        android:fontFamily="sans-serif-condensed-medium"
         android:background="@color/colorPrimary"
         android:textColor="@color/colorWhite"
-        android:textSize="14sp"
+        android:textSize="18sp"
         android:text="ROOM" />
 
     <EditText
@@ -88,22 +88,33 @@
         android:fontFamily="sans-serif-light"
         android:ems="10"
         android:inputType="text"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:hint="COURSE NAME" />
 
-    <EditText
-        android:id="@+id/building1"
-        android:gravity="center"
-        android:layout_margin="10dp"
+<!--    <EditText-->
+<!--        android:id="@+id/building1"-->
+<!--        android:gravity="center"-->
+<!--        android:layout_margin="10dp"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_rowSpan="1"-->
+<!--        android:layout_columnSpan="1"-->
+<!--        android:layout_columnWeight="1"-->
+<!--        android:fontFamily="sans-serif-light"-->
+<!--        android:ems="10"-->
+<!--        android:textSize="16sp"-->
+<!--        android:hint="BUILDING" />-->
+    <Spinner
+        android:id="@+id/buildingSpinner"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_rowSpan="1"
         android:layout_columnSpan="1"
-        android:layout_columnWeight="1"
+        android:layout_columnWeight="3"
+        android:layout_margin="10dp"
         android:fontFamily="sans-serif-light"
-        android:ems="10"
-        android:textSize="16sp"
-        android:hint="BUILDING" />
+        android:entries="@array/buildingGU"
+        android:textSize="14sp"/>
 
     <EditText
         android:id="@+id/room1"
@@ -117,8 +128,7 @@
         android:fontFamily="sans-serif-light"
         android:ems="10"
         android:inputType="number"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:hint="ROOM" />
-
 
 </GridLayout>
