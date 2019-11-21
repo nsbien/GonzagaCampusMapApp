@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&page=Gonzaga_Bulldogs&id=925701108-->
+<!--    http://www.colormatics.com/gonzaga-university-case-study/-->
+<!--have not cited sources but links are above for the GU logos-->
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="2"
+    android:padding="10dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <ImageView
+        android:id="@+id/guLogo"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_rowSpan="1"
+        android:layout_rowWeight=".5"
+        android:layout_columnSpan="1"
+        android:layout_columnWeight="1"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/gu" />
+
+    <ImageView
+        android:id="@+id/gonzagaUniversity"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_rowSpan="1"
+        android:layout_rowWeight=".5"
+        android:layout_columnSpan="1"
+        android:layout_columnWeight="4"
+        android:src="@drawable/gonzaga"/>
+
+<!--    i was trying to add images next to each button.... wasnt quite wokring -->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/mapsPNG"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_columnSpan="1"-->
+<!--        android:layout_columnWeight="1"-->
+<!--        android:layout_rowWeight="5"-->
+<!--        android:layout_rowSpan="1"-->
+<!--        android:src="@drawable/maps"/>-->
+
+<!--    <Button-->
+<!--        android:id="@+id/directionsButton"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_rowSpan="1"-->
+<!--        android:layout_rowWeight="5"-->
+<!--        android:layout_columnSpan="1"-->
+<!--        android:layout_columnWeight="4"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:layout_margin="5dp"-->
+<!--        android:background="@color/colorPrimary"-->
+<!--        android:text="Directions"-->
+<!--        android:textColor="@color/colorWhite" />-->
+
+    <Button
+        android:id="@+id/directionsButton"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_rowWeight="8"
+        android:layout_columnSpan="2"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="sans-serif-light"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorWhite"
+        android:textSize="18sp"
+        android:text="Directions"/>
+
+    <Button
+        android:id="@+id/findClassButton"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_columnSpan="2"
+        android:layout_rowWeight="8"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/colorPrimary"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/colorWhite"
+        android:textSize="18sp"
+        android:text="Find My Classes" />
+
+    <Button
+        android:id="@+id/zagWebButton"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_columnSpan="2"
+        android:layout_rowWeight="8"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/colorPrimary"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/colorWhite"
+        android:textSize="18sp"
+        android:text="Zag Web"
+        />
+
+    <Button
+        android:id="@+id/extrasButton"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_columnSpan="2"
+        android:layout_rowWeight="8"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/colorPrimary"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/colorWhite"
+        android:textSize="18sp"
+        android:text="Extras" />
+
+    <TextView
+        android:id="@+id/abouMeText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_columnSpan="2"
+        android:layout_rowWeight="7"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:fontFamily="serif-monospace"
+        android:text="about gonzaga" />
+
+</GridLayout>

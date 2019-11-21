@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="4"
+    android:layout_margin="10dp"
+    tools:context=".FindMyClasses">
+
+    <ImageView
+        android:id="@+id/booksPNG"
+        android:layout_margin="10dp"
+        android:layout_width="0dp"
+        android:layout_height="160dp"
+        android:layout_rowSpan="1"
+        android:layout_columnSpan="2"
+        android:layout_columnWeight="1"
+        android:src="@drawable/books"/>
+
+    <TextView
+        android:id="@+id/inputClassesText"
+        android:layout_margin="5dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_rowSpan="1"
+        android:layout_columnSpan="2"
+        android:layout_columnWeight="3"
+        android:textSize="44sp"
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="INPUT \nENROLLED \nCOURSES" />
+
+    <TextView
+        android:id="@+id/inputCourseNameText"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_rowSpan="1"
+        android:layout_columnSpan="2"
+        android:layout_columnWeight="3"
+        android:fontFamily="sans-serif-light"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorWhite"
+        android:textSize="14sp"
+        android:text="COURSE NAME" />
+
+    <TextView
+        android:id="@+id/inputCourseBuildingText"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_rowSpan="1"
+        android:layout_columnSpan="1"
+        android:layout_columnWeight="2"
+        android:fontFamily="sans-serif-light"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorWhite"
+        android:textSize="14sp"
+        android:text="BUILDING" />
+
+    <TextView
+        android:id="@+id/inputCourseRoomText"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_rowSpan="1"
+        android:layout_columnSpan="1"
+        android:layout_columnWeight="1"
+        android:fontFamily="sans-serif-light"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorWhite"
+        android:textSize="14sp"
+        android:text="ROOM" />
+
+    <EditText
+        android:id="@+id/course1"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_rowSpan="1"
+        android:layout_columnSpan="2"
+        android:layout_columnWeight="1"
+        android:fontFamily="sans-serif-light"
+        android:ems="10"
+        android:inputType="text"
+        android:textSize="16sp"
+        android:hint="COURSE NAME" />
+
+    <EditText
+        android:id="@+id/building1"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_rowSpan="1"
+        android:layout_columnSpan="1"
+        android:layout_columnWeight="1"
+        android:fontFamily="sans-serif-light"
+        android:ems="10"
+        android:textSize="16sp"
+        android:hint="BUILDING" />
+
+    <EditText
+        android:id="@+id/room1"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_rowSpan="1"
+        android:layout_columnSpan="1"
+        android:layout_columnWeight="1"
+        android:fontFamily="sans-serif-light"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="16sp"
+        android:hint="ROOM" />
+
+
+</GridLayout>
