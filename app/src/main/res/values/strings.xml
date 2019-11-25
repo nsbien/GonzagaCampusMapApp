@@ -4,15 +4,16 @@
     <string name="title_activity_directions">Map</string>
     <string-array name="buildingGU">
         <item>College Hall</item>
-        <item>Paccar</item>
+        <item>Coughlin</item>
+        <item>Crosby</item>
+        <item>Hemmingson</item>
         <item>Herek</item>
         <item>Hughes</item>
-        <item>Rosar</item>
         <item>Jepson</item>
-        <item>Tilford</item>
         <item>Jundt</item>
-        <item>Coughlin</item>
-        <item>Hemmingson</item>
-        <item>Crosby</item>
+        <item>Paccar</item>
+        <item>Rosar</item>
+        <item>Tilford</item>
     </string-array>
+    <string name="title_activity_locate_classes">LocateClasses</string>
 </resources>

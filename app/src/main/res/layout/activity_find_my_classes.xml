@@ -9,41 +9,45 @@
     tools:context=".FindMyClasses">
 
     <ImageView
-        android:id="@+id/booksPNG"
-        android:layout_margin="10dp"
+        android:id="@+id/guChap"
+        android:layout_margin="2dp"
         android:layout_width="0dp"
-        android:layout_height="160dp"
+        android:layout_height="0dp"
         android:layout_rowSpan="1"
-        android:layout_columnSpan="2"
-        android:layout_columnWeight="1"
-        android:src="@drawable/books"/>
+        android:layout_rowWeight="1.75"
+        android:layout_columnSpan="1"
+        android:layout_columnWeight="3"
+        android:src="@drawable/gu_chap"/>
 
     <TextView
         android:id="@+id/inputClassesText"
-        android:layout_margin="5dp"
+        android:gravity="bottom"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_rowSpan="1"
-        android:layout_columnSpan="2"
-        android:layout_columnWeight="3"
-        android:textSize="44sp"
-        android:textColor="@color/colorPrimary"
+        android:layout_rowWeight="1.75"
+        android:layout_columnSpan="3"
+        android:layout_columnWeight="1"
+        android:layout_margin="0dp"
         android:fontFamily="sans-serif-condensed-medium"
-        android:text="INPUT \nENROLLED \nCOURSES" />
+        android:text="ENROLLED COURSES"
+        android:textColor="@color/colorPrimary"
+        android:textSize="34sp" />
 
     <TextView
         android:id="@+id/inputCourseNameText"
         android:gravity="center"
         android:layout_margin="10dp"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_rowSpan="1"
+        android:layout_rowWeight="1"
         android:layout_columnSpan="2"
-        android:layout_columnWeight="3"
+        android:layout_columnWeight="5"
         android:fontFamily="sans-serif-condensed-medium"
-        android:background="@color/colorPrimary"
         android:textColor="@color/colorWhite"
         android:textSize="18sp"
+        android:background="@color/colorAccent"
         android:text="COURSE NAME" />
 
     <TextView
@@ -51,14 +55,15 @@
         android:gravity="center"
         android:layout_margin="10dp"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_rowSpan="1"
+        android:layout_rowWeight="1"
         android:layout_columnSpan="1"
         android:layout_columnWeight="3"
         android:fontFamily="sans-serif-condensed-medium"
-        android:background="@color/colorPrimary"
         android:textColor="@color/colorWhite"
         android:textSize="18sp"
+        android:background="@color/colorAccent"
         android:text="BUILDING" />
 
     <TextView
@@ -66,52 +71,42 @@
         android:gravity="center"
         android:layout_margin="10dp"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_rowSpan="1"
+        android:layout_rowWeight="1"
         android:layout_columnSpan="1"
-        android:layout_columnWeight="1"
+        android:layout_columnWeight="2"
         android:fontFamily="sans-serif-condensed-medium"
-        android:background="@color/colorPrimary"
         android:textColor="@color/colorWhite"
         android:textSize="18sp"
+        android:background="@color/colorAccent"
         android:text="ROOM" />
 
     <EditText
         android:id="@+id/course1"
         android:gravity="center"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_rowSpan="1"
+        android:layout_rowWeight="1"
         android:layout_columnSpan="2"
         android:layout_columnWeight="1"
         android:fontFamily="sans-serif-light"
-        android:ems="10"
+        android:ems="5"
         android:inputType="text"
         android:textSize="14sp"
         android:hint="COURSE NAME" />
 
-<!--    <EditText-->
-<!--        android:id="@+id/building1"-->
-<!--        android:gravity="center"-->
-<!--        android:layout_margin="10dp"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_rowSpan="1"-->
-<!--        android:layout_columnSpan="1"-->
-<!--        android:layout_columnWeight="1"-->
-<!--        android:fontFamily="sans-serif-light"-->
-<!--        android:ems="10"-->
-<!--        android:textSize="16sp"-->
-<!--        android:hint="BUILDING" />-->
     <Spinner
-        android:id="@+id/buildingSpinner"
+        android:id="@+id/buildingSpinner1"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_rowSpan="1"
+        android:layout_rowWeight="1"
         android:layout_columnSpan="1"
         android:layout_columnWeight="3"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:fontFamily="sans-serif-light"
         android:entries="@array/buildingGU"
         android:textSize="14sp"/>
@@ -119,16 +114,319 @@
     <EditText
         android:id="@+id/room1"
         android:gravity="center"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_rowSpan="1"
+        android:layout_rowWeight="1"
         android:layout_columnSpan="1"
         android:layout_columnWeight="1"
         android:fontFamily="sans-serif-light"
-        android:ems="10"
+        android:ems="5"
         android:inputType="number"
         android:textSize="14sp"
         android:hint="ROOM" />
+
+    <EditText
+        android:id="@+id/course2"
+        android:gravity="center"
+        android:layout_margin="5dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowSpan="1"
+        android:layout_rowWeight="1"
+        android:layout_columnSpan="2"
+        android:layout_columnWeight="1"
+        android:fontFamily="sans-serif-light"
+        android:ems="5"
+        android:inputType="text"
+        android:textSize="14sp"
+        android:visibility="invisible"
+        android:hint="COURSE NAME" />
+
+    <Spinner
+        android:id="@+id/buildingSpinner2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowSpan="1"
+        android:layout_rowWeight="1"
+        android:layout_columnSpan="1"
+        android:layout_columnWeight="3"
+        android:layout_margin="5dp"
+        android:fontFamily="sans-serif-light"
+        android:entries="@array/buildingGU"
+        android:visibility="invisible"
+        android:textSize="14sp"/>
+
+    <EditText
+        android:id="@+id/room2"
+        android:gravity="center"
+        android:layout_margin="5dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowSpan="1"
+        android:layout_rowWeight="1"
+        android:layout_columnSpan="1"
+        android:layout_columnWeight="1"
+        android:fontFamily="sans-serif-light"
+        android:ems="5"
+        android:inputType="number"
+        android:textSize="14sp"
+        android:visibility="invisible"
+        android:hint="ROOM" />
+
+    <EditText
+        android:id="@+id/course3"
+        android:gravity="center"
+        android:layout_margin="5dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowSpan="1"
+        android:layout_rowWeight="1"
+        android:layout_columnSpan="2"
+        android:layout_columnWeight="1"
+        android:fontFamily="sans-serif-light"
+        android:ems="5"
+        android:inputType="text"
+        android:textSize="14sp"
+        android:visibility="invisible"
+        android:hint="COURSE NAME" />
+
+    <Spinner
+        android:id="@+id/buildingSpinner3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowSpan="1"
+        android:layout_rowWeight="1"
+        android:layout_columnSpan="1"
+        android:layout_columnWeight="3"
+        android:layout_margin="5dp"
+        android:fontFamily="sans-serif-light"
+        android:entries="@array/buildingGU"
+        android:visibility="invisible"
+        android:textSize="14sp"/>
+
+    <EditText
+        android:id="@+id/room3"
+        android:gravity="center"
+        android:layout_margin="5dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowSpan="1"
+        android:layout_rowWeight="1"
+        android:layout_columnSpan="1"
+        android:layout_columnWeight="1"
+        android:fontFamily="sans-serif-light"
+        android:ems="5"
+        android:inputType="number"
+        android:textSize="14sp"
+        android:visibility="invisible"
+        android:hint="ROOM" />
+
+    <EditText
+        android:id="@+id/course4"
+        android:gravity="center"
+        android:layout_margin="5dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowSpan="1"
+        android:layout_rowWeight="1"
+        android:layout_columnSpan="2"
+        android:layout_columnWeight="1"
+        android:fontFamily="sans-serif-light"
+        android:ems="5"
+        android:inputType="text"
+        android:textSize="14sp"
+        android:visibility="invisible"
+        android:hint="COURSE NAME" />
+
+    <Spinner
+        android:id="@+id/buildingSpinner4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowSpan="1"
+        android:layout_rowWeight="1"
+        android:layout_columnSpan="1"
+        android:layout_columnWeight="3"
+        android:layout_margin="5dp"
+        android:fontFamily="sans-serif-light"
+        android:entries="@array/buildingGU"
+        android:visibility="invisible"
+        android:textSize="14sp"/>
+
+    <EditText
+        android:id="@+id/room4"
+        android:gravity="center"
+        android:layout_margin="5dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowSpan="1"
+        android:layout_rowWeight="1"
+        android:layout_columnSpan="1"
+        android:layout_columnWeight="1"
+        android:fontFamily="sans-serif-light"
+        android:ems="5"
+        android:inputType="number"
+        android:textSize="14sp"
+        android:visibility="invisible"
+        android:hint="ROOM" />
+
+    <EditText
+        android:id="@+id/course5"
+        android:gravity="center"
+        android:layout_margin="5dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowSpan="1"
+        android:layout_rowWeight="1"
+        android:layout_columnSpan="2"
+        android:layout_columnWeight="1"
+        android:fontFamily="sans-serif-light"
+        android:ems="5"
+        android:inputType="text"
+        android:textSize="14sp"
+        android:visibility="invisible"
+        android:hint="COURSE NAME" />
+
+    <Spinner
+        android:id="@+id/buildingSpinner5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowSpan="1"
+        android:layout_rowWeight="1"
+        android:layout_columnSpan="1"
+        android:layout_columnWeight="3"
+        android:layout_margin="5dp"
+        android:fontFamily="sans-serif-light"
+        android:entries="@array/buildingGU"
+        android:visibility="invisible"
+        android:textSize="14sp"/>
+
+    <EditText
+        android:id="@+id/room5"
+        android:gravity="center"
+        android:layout_margin="5dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowSpan="1"
+        android:layout_rowWeight="1"
+        android:layout_columnSpan="1"
+        android:layout_columnWeight="1"
+        android:fontFamily="sans-serif-light"
+        android:ems="5"
+        android:inputType="number"
+        android:textSize="14sp"
+        android:visibility="invisible"
+        android:hint="ROOM" />
+
+    <EditText
+        android:id="@+id/course6"
+        android:gravity="center"
+        android:layout_margin="5dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowSpan="1"
+        android:layout_rowWeight="1"
+        android:layout_columnSpan="2"
+        android:layout_columnWeight="1"
+        android:fontFamily="sans-serif-light"
+        android:ems="5"
+        android:inputType="text"
+        android:textSize="14sp"
+        android:visibility="invisible"
+        android:hint="COURSE NAME" />
+
+    <Spinner
+        android:id="@+id/buildingSpinner6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowSpan="1"
+        android:layout_rowWeight="1"
+        android:layout_columnSpan="1"
+        android:layout_columnWeight="3"
+        android:layout_margin="5dp"
+        android:fontFamily="sans-serif-light"
+        android:entries="@array/buildingGU"
+        android:visibility="invisible"
+        android:textSize="14sp"/>
+
+    <EditText
+        android:id="@+id/room6"
+        android:gravity="center"
+        android:layout_margin="5dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowSpan="1"
+        android:layout_rowWeight="1"
+        android:layout_columnSpan="1"
+        android:layout_columnWeight="1"
+        android:fontFamily="sans-serif-light"
+        android:ems="5"
+        android:inputType="number"
+        android:textSize="14sp"
+        android:visibility="invisible"
+        android:hint="ROOM" />
+
+    <EditText
+        android:id="@+id/course7"
+        android:gravity="center"
+        android:layout_margin="5dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowSpan="1"
+        android:layout_rowWeight="1"
+        android:layout_columnSpan="2"
+        android:layout_columnWeight="1"
+        android:fontFamily="sans-serif-light"
+        android:ems="5"
+        android:inputType="text"
+        android:textSize="14sp"
+        android:visibility="invisible"
+        android:hint="COURSE NAME" />
+
+    <Spinner
+        android:id="@+id/buildingSpinner7"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowSpan="1"
+        android:layout_rowWeight="1"
+        android:layout_columnSpan="1"
+        android:layout_columnWeight="3"
+        android:layout_margin="5dp"
+        android:fontFamily="sans-serif-light"
+        android:entries="@array/buildingGU"
+        android:visibility="invisible"
+        android:textSize="14sp"/>
+
+    <EditText
+        android:id="@+id/room7"
+        android:gravity="center"
+        android:layout_margin="5dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowSpan="1"
+        android:layout_rowWeight="1"
+        android:layout_columnSpan="1"
+        android:layout_columnWeight="1"
+        android:fontFamily="sans-serif-light"
+        android:ems="5"
+        android:inputType="number"
+        android:textSize="14sp"
+        android:visibility="invisible"
+        android:hint="ROOM" />
+
+    <ImageView
+        android:id="@+id/addButton"
+        android:layout_marginBottom="5dp"
+        android:layout_width="0dp"
+        android:layout_gravity="bottom"
+        android:layout_height="40dp"
+        android:layout_rowSpan="1"
+        android:layout_rowWeight="1"
+        android:layout_column="3"
+        android:layout_columnSpan="1"
+        android:layout_columnWeight="1"
+        android:fontFamily="sans-serif-light"
+        android:src="@drawable/add" />
 
 </GridLayout>
