@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -17,6 +18,8 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.List;
 
 public class FindMyClasses extends AppCompatActivity {
+
+    static final String TAG = "findMyClass";
 
     private String SAVE_COURSE1;
     private int SAVE_BUILDING1;
