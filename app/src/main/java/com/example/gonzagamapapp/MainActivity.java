@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         directionsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, DirectionsActivity.class);
+                Intent intent = new Intent(MainActivity.this, DirectionActivity.class);
                 startActivity(intent);
             }
         });

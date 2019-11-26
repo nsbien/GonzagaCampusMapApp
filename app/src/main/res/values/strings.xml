@@ -16,4 +16,5 @@
         <item>Tilford</item>
     </string-array>
     <string name="title_activity_locate_classes">LocateClasses</string>
+    <string name="title_activity_direction">Map</string>
 </resources>
