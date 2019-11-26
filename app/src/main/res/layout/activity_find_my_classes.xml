@@ -416,17 +416,46 @@
         android:hint="ROOM" />
 
     <ImageView
+        android:id="@+id/backButton"
+        android:layout_marginBottom="5dp"
+        android:padding="3dp"
+        android:layout_width="0dp"
+        android:layout_gravity="bottom"
+        android:layout_height="30dp"
+        android:layout_rowSpan="1"
+        android:layout_rowWeight="1"
+        android:layout_column="0"
+        android:layout_columnSpan="1"
+        android:layout_columnWeight="1"
+        android:src="@drawable/back" />
+    <!--    credit back button image:: Gregor Cresnar-->
+
+    <ImageView
+        android:id="@+id/mapMyClassesButton"
+        android:layout_marginBottom="5dp"
+        android:layout_width="0dp"
+        android:layout_gravity="bottom"
+        android:layout_height="30dp"
+        android:layout_rowSpan="1"
+        android:layout_rowWeight="1"
+        android:layout_column="1"
+        android:layout_columnSpan="2"
+        android:layout_columnWeight="1"
+        android:src="@drawable/maps_flags" />
+    <!--    credit back button image:: Freepik-->
+
+    <ImageView
         android:id="@+id/addButton"
         android:layout_marginBottom="5dp"
         android:layout_width="0dp"
         android:layout_gravity="bottom"
-        android:layout_height="40dp"
+        android:layout_height="30dp"
         android:layout_rowSpan="1"
         android:layout_rowWeight="1"
         android:layout_column="3"
         android:layout_columnSpan="1"
         android:layout_columnWeight="1"
-        android:fontFamily="sans-serif-light"
         android:src="@drawable/add" />
+    <!--    credit back button image:: Gregor Cresnar-->
 
 </GridLayout>

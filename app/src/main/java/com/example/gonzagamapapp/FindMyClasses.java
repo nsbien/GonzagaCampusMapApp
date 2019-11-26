@@ -3,6 +3,8 @@ package com.example.gonzagamapapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -120,6 +122,41 @@ public class FindMyClasses extends AppCompatActivity {
             room7.setText(savedInstanceState.getString("save_room7"));
             SAVE_ROOM7 = savedInstanceState.getString("save_room7");
         }
+
+        ImageView backButton = (ImageView) findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FindMyClasses.this.finish();
+            }
+        });
+
+        ImageView mapMyClassesButton = (ImageView) findViewById(R.id.mapMyClassesButton);
+        mapMyClassesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String course1 = "n/a";
+                String building1 = "";
+                String room1 = "n/a";
+
+                if (findViewById(R.id.course1) != null) {
+                    EditText C1 = (EditText) findViewById(R.id.course1);
+                    course1 = String.valueOf(C1.getText());
+                    Spinner B1 = (Spinner) findViewById(R.id.buildingSpinner1);
+                    building1 = String.valueOf(B1.getSelectedItem());
+                    if (findViewById(R.id.room1) != null) {
+                        EditText R1 = (EditText) findViewById(R.id.room1);
+                        room1 = String.valueOf(R1.getText());
+                    }
+                }
+
+                Intent intent = new Intent(FindMyClasses.this, FindMyClassesMapsActivity.class);
+                intent.putExtra("course1", course1);
+                intent.putExtra("building1", building1);
+                intent.putExtra("room1", room1);
+                startActivity(intent);
+            }
+        });
 
         ImageView addButton = (ImageView) findViewById(R.id.addButton);
         addButton.setOnClickListener(new View.OnClickListener() {

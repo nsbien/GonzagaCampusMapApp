@@ -31,8 +31,11 @@
             android:value="@string/google_maps_key" />
 
         <activity
+            android:name=".FindMyClassesMapsActivity"
+            android:label="@string/title_activity_find_my_classes_maps"></activity>
+        <activity
             android:name=".DirectionActivity"
-            android:label="@string/title_activity_direction"></activity>
+            android:label="@string/title_activity_direction" />
         <activity android:name=".FindMyClasses" />
         <activity
             android:name=".MainActivity"

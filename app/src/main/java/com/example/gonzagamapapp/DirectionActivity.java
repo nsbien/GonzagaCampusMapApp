@@ -24,8 +24,8 @@ import java.io.IOException;
 import java.util.List;
 
 public class DirectionActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMyLocationClickListener {
-    static final int MY_LOCATION_REQUEST_CODE = 1;
 
+    static final int MY_LOCATION_REQUEST_CODE = 1;
     private GoogleMap mMap;
 
     @Override
@@ -67,7 +67,6 @@ public class DirectionActivity extends FragmentActivity implements OnMapReadyCal
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        // this callback executes when the user has made a choice on the alert dialog - allow or deny
         if (requestCode == MY_LOCATION_REQUEST_CODE) {
             if (permissions.length == 1 &&
                     permissions[0].equals(Manifest.permission.ACCESS_FINE_LOCATION) &&

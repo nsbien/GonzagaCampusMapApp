@@ -17,4 +17,5 @@
     </string-array>
     <string name="title_activity_locate_classes">LocateClasses</string>
     <string name="title_activity_direction">Map</string>
+    <string name="title_activity_find_my_classes_maps">Map</string>
 </resources>
