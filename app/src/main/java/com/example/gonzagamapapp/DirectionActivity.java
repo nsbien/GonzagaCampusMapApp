@@ -1,5 +1,7 @@
 package com.example.gonzagamapapp;
+
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
@@ -10,6 +12,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
+import android.location.Location;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdate;
@@ -23,7 +26,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.io.IOException;
 import java.util.List;
 
-public class DirectionActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMyLocationClickListener {
+public class DirectionActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMyLocationClickListener {
 
     static final int MY_LOCATION_REQUEST_CODE = 1;
     private GoogleMap mMap;
@@ -36,6 +39,7 @@ public class DirectionActivity extends FragmentActivity implements OnMapReadyCal
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
     }
 
 
@@ -52,7 +56,6 @@ public class DirectionActivity extends FragmentActivity implements OnMapReadyCal
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        addGonzagaMarker();
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             mMap.setMyLocationEnabled(true);
@@ -77,18 +80,6 @@ public class DirectionActivity extends FragmentActivity implements OnMapReadyCal
         }
     }
 
-    private void addGonzagaMarker() {
-        String gonzagaStr = "Gonzaga University";
-        LatLng gonzagaLatLng = getLatLngUsingGeocoding(gonzagaStr);
-        MarkerOptions gonzagaMarkerOptions = new MarkerOptions();
-        gonzagaMarkerOptions.title(gonzagaStr);
-        gonzagaMarkerOptions.snippet("Welcome To GU Campus!");
-        gonzagaMarkerOptions.position(gonzagaLatLng);
-        mMap.addMarker(gonzagaMarkerOptions);
-
-        CameraUpdate gonzagaCameraUpdate = CameraUpdateFactory.newLatLngZoom(gonzagaLatLng, 15.0f);
-        mMap.moveCamera(gonzagaCameraUpdate);
-    }
 
     private LatLng getLatLngUsingGeocoding(String gonzagaStr) {
         LatLng latLng = null;

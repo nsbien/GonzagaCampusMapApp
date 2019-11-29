@@ -416,7 +416,7 @@
         android:hint="ROOM" />
 
     <ImageView
-        android:id="@+id/backButton"
+        android:id="@+id/backButton1"
         android:layout_marginBottom="5dp"
         android:padding="3dp"
         android:layout_width="0dp"
@@ -431,7 +431,7 @@
     <!--    credit back button image:: Gregor Cresnar-->
 
     <ImageView
-        android:id="@+id/mapMyClassesButton"
+        android:id="@+id/mapMyClassesButton1"
         android:layout_marginBottom="5dp"
         android:layout_width="0dp"
         android:layout_gravity="bottom"

@@ -1,6 +1,7 @@
 /**
+ * Authors: Joseph Torii and Nicole Bien
  *
- * 
+ *
  */
 
 package com.example.gonzagamapapp;
@@ -38,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
+
+
+
         Button directionsButton = (Button) findViewById(R.id.directionsButton);
         directionsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +70,15 @@ public class MainActivity extends AppCompatActivity {
                 Uri guUri = Uri.parse("https://zagweb.gonzaga.edu/prod/twbkwbis.P_GenMenu?name=homepage");
                 intent.setData(guUri);
                 startActivity(intent);
+            }
+        });
+
+        Button extrasButton = (Button) findViewById(R.id.extrasButton);
+        extrasButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v, "oh hey, didn't see you there, try again", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
         });
     }
