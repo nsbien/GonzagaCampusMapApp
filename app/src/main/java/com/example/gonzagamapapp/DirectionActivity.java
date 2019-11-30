@@ -13,10 +13,13 @@ import android.location.Location;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
 import java.util.List;
@@ -61,14 +64,18 @@ public class DirectionActivity extends AppCompatActivity implements OnMapReadyCa
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            mMap.setMyLocationEnabled(true);
-            mMap.setOnMyLocationClickListener(this);
-        } else {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                    MY_LOCATION_REQUEST_CODE);
-        }
+//        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+//            mMap.setMyLocationEnabled(true);
+//            mMap.setOnMyLocationClickListener(this);
+//        } else {
+//            ActivityCompat.requestPermissions(this,
+//                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+//                    MY_LOCATION_REQUEST_CODE);
+//        }
+
+        LatLng gonzaga = new LatLng(47.647536, -117.408985); // coordinates to Spokane not gonzaga but close enough right?
+        mMap.addMarker(new MarkerOptions().position(gonzaga).title("Here is Gonzaga!"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(gonzaga));
     }
 
     @Override
@@ -101,7 +108,7 @@ public class DirectionActivity extends AppCompatActivity implements OnMapReadyCa
     }
 
     /**
-     Gets the user's location in latitude and longitude 
+     Gets the user's location in latitude and longitude
      *
      * @param Location location
      * @return n/a
