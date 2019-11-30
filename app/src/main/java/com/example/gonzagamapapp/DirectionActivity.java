@@ -40,6 +40,8 @@ public class DirectionActivity extends AppCompatActivity implements OnMapReadyCa
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+//        mGeoDataClient = Places.getGeoDataClient(this, null);
+
     }
 
 
