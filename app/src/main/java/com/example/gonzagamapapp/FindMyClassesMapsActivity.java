@@ -18,6 +18,10 @@ public class FindMyClassesMapsActivity extends FragmentActivity implements OnMap
     static final String TAG = "FindMyClass";
     private GoogleMap mMap;
 
+    private double coor1 = 0;
+    private double coor2 = 0;
+    private String course1;
+
     /**
      Starts google maps and displays every class that the user had inputted
      *
@@ -34,7 +38,7 @@ public class FindMyClassesMapsActivity extends FragmentActivity implements OnMap
         mapFragment.getMapAsync(this);
 
         Intent intent = getIntent();
-        String course1 = intent.getStringExtra("course1");
+        course1 = intent.getStringExtra("course1");
         String building1 = intent.getStringExtra("building1");
         String room1 = intent.getStringExtra("room1");
 //        Log.d(TAG, "Course: " + course1 + "  Building: " + building1 + "  Room: " + room1);
@@ -54,9 +58,15 @@ public class FindMyClassesMapsActivity extends FragmentActivity implements OnMap
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        // testing to see if the map will mark where the user wants (hard-coding)
+        if(course1.equals("cpsc 223")){
+            coor1 = 47.666394;
+            coor2 = -117.402070;
+        }
+
+        // Add a marker where the first class is
+        LatLng sydney = new LatLng(coor1, coor2);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Pacaar 106"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 }

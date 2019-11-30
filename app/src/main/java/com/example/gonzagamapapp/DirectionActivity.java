@@ -17,6 +17,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -28,12 +29,13 @@ public class DirectionActivity extends AppCompatActivity implements OnMapReadyCa
 
     static final int MY_LOCATION_REQUEST_CODE = 1;
     private GoogleMap mMap;
+    private static final String TAG = DirectionActivity.class.getSimpleName();
+    private CameraPosition mCameraPosition;
 
     /**
      Allows the user to input the classes that they are in with the associated building
      and room number
      *
-     * @param Bundle savedInstanceState
      * @return n/a
      */
     @Override
@@ -92,25 +94,41 @@ public class DirectionActivity extends AppCompatActivity implements OnMapReadyCa
     }
 
 
-    private LatLng getLatLngUsingGeocoding(String gonzagaStr) {
-        LatLng latLng = null;
-        Geocoder geocoder = new Geocoder(this);
-        try {
-            List<Address> addressList = geocoder.getFromLocationName(gonzagaStr, 1);
-            if (addressList != null && addressList.size() > 0) {
-                Address addressResult = addressList.get(0);
-                latLng = new LatLng(addressResult.getLatitude(), addressResult.getLongitude());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return latLng;
-    }
+//    private LatLng getLatLngUsingGeocoding(String gonzagaStr) {
+//        LatLng latLng = null;
+//        Geocoder geocoder = new Geocoder(this);
+//        try {
+//            List<Address> addressList = geocoder.getFromLocationName(gonzagaStr, 1);
+//            if (addressList != null && addressList.size() > 0) {
+//                Address addressResult = addressList.get(0);
+//                latLng = new LatLng(addressResult.getLatitude(), addressResult.getLongitude());
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return latLng;
+//    }
+
+//    private void getLocationPermission() {
+//        /*
+//         * Request location permission, so that we can get the location of the
+//         * device. The result of the permission request is handled by a callback,
+//         * onRequestPermissionsResult.
+//         */
+//        if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
+//                android.Manifest.permission.ACCESS_FINE_LOCATION)
+//                == PackageManager.PERMISSION_GRANTED) {
+//            mLocationPermissionGranted = true;
+//        } else {
+//            ActivityCompat.requestPermissions(this,
+//                    new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
+//                    PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
+//        }
+//    }
 
     /**
      Gets the user's location in latitude and longitude
      *
-     * @param Location location
      * @return n/a
      */
     @Override
