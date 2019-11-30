@@ -39,11 +39,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
         Button directionsButton = (Button) findViewById(R.id.directionsButton);
         directionsButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -13,6 +13,7 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
+
     <ImageView
         android:id="@+id/guLogo"
         android:layout_width="0dp"
@@ -33,32 +34,6 @@
         android:layout_columnSpan="1"
         android:layout_columnWeight="4"
         android:src="@drawable/gonzaga"/>
-
-<!--    i was trying to add images next to each button.... wasnt quite wokring -->
-
-<!--    <ImageView-->
-<!--        android:id="@+id/mapsPNG"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="0dp"-->
-<!--        android:layout_columnSpan="1"-->
-<!--        android:layout_columnWeight="1"-->
-<!--        android:layout_rowWeight="5"-->
-<!--        android:layout_rowSpan="1"-->
-<!--        android:src="@drawable/maps"/>-->
-
-<!--    <Button-->
-<!--        android:id="@+id/directionsButton"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="0dp"-->
-<!--        android:layout_rowSpan="1"-->
-<!--        android:layout_rowWeight="5"-->
-<!--        android:layout_columnSpan="1"-->
-<!--        android:layout_columnWeight="4"-->
-<!--        android:layout_gravity="center_horizontal"-->
-<!--        android:layout_margin="5dp"-->
-<!--        android:background="@color/colorPrimary"-->
-<!--        android:text="Directions"-->
-<!--        android:textColor="@color/colorWhite" />-->
 
     <Button
         android:id="@+id/directionsButton"
