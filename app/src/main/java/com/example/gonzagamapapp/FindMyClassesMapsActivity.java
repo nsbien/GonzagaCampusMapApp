@@ -18,6 +18,12 @@ public class FindMyClassesMapsActivity extends FragmentActivity implements OnMap
     static final String TAG = "FindMyClass";
     private GoogleMap mMap;
 
+    /**
+     Starts google maps and displays every class that the user had inputted
+     *
+     * @param Bundle savedInstanceState
+     * @return n/a
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +37,7 @@ public class FindMyClassesMapsActivity extends FragmentActivity implements OnMap
         String course1 = intent.getStringExtra("course1");
         String building1 = intent.getStringExtra("building1");
         String room1 = intent.getStringExtra("room1");
-        Log.d(TAG, "Course: " + course1 + "  Building: " + building1 + "  Room: " + room1);
+//        Log.d(TAG, "Course: " + course1 + "  Building: " + building1 + "  Room: " + room1);
     }
 
 

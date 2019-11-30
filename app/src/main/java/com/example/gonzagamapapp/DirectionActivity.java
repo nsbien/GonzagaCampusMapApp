@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -12,16 +11,12 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
-import android.location.Location;
 import android.widget.Toast;
 
-import com.google.android.gms.maps.CameraUpdate;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
 import java.util.List;
@@ -31,6 +26,13 @@ public class DirectionActivity extends AppCompatActivity implements OnMapReadyCa
     static final int MY_LOCATION_REQUEST_CODE = 1;
     private GoogleMap mMap;
 
+    /**
+     Allows the user to input the classes that they are in with the associated building
+     and room number
+     *
+     * @param Bundle savedInstanceState
+     * @return n/a
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,6 +100,12 @@ public class DirectionActivity extends AppCompatActivity implements OnMapReadyCa
         return latLng;
     }
 
+    /**
+     Gets the user's location in latitude and longitude 
+     *
+     * @param Location location
+     * @return n/a
+     */
     @Override
     public void onMyLocationClick(@NonNull Location location) {
         // executes when user clicks on their blue dot
