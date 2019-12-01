@@ -86,8 +86,8 @@ public class MainActivity extends AppCompatActivity {
         extrasButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, "oh hey, didn't see you there, try again", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(MainActivity.this, extraActivity.class);
+                startActivity(intent);
             }
         });
     }
