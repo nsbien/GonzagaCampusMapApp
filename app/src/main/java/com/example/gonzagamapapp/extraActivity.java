@@ -30,7 +30,7 @@ public class extraActivity extends AppCompatActivity {
         protected Void doInBackground(Void... voids) {
 
             try {
-                Document doc = Jsoup.connect("https://www.gonzaga.edu/").get();
+                Document doc = (Document) Jsoup.connect("https://www.gonzaga.edu/").get();
                 
 
             }catch (Exception e){

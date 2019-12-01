@@ -11,8 +11,13 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
+import android.text.Layout;
+import android.view.View;
+import android.widget.Button;
+import android.widget.GridLayout;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -47,6 +52,14 @@ public class DirectionActivity extends AppCompatActivity implements OnMapReadyCa
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        Button navigateButton = (Button) findViewById(R.id.navigateButton);
+        navigateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(DirectionActivity.this, "pushed me!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
 //        mGeoDataClient = Places.getGeoDataClient(this, null);
 
     }
@@ -65,21 +78,28 @@ public class DirectionActivity extends AppCompatActivity implements OnMapReadyCa
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        addGonzagaMarker();
 
-//        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-//            mMap.setMyLocationEnabled(true);
-//            mMap.setOnMyLocationClickListener(this);
-//        } else {
-//            ActivityCompat.requestPermissions(this,
-//                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-//                    MY_LOCATION_REQUEST_CODE);
-//        }
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            mMap.setMyLocationEnabled(true);
+            mMap.setOnMyLocationClickListener(this);
+        } else {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    MY_LOCATION_REQUEST_CODE);
+        }
 
-        LatLng gonzaga = new LatLng(47.647536, -117.408985); // coordinates to Spokane not gonzaga but close enough right?
-        mMap.addMarker(new MarkerOptions().position(gonzaga).title("Here is Gonzaga!"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(gonzaga));
+//        LatLng gonzaga = new LatLng(47.647536, -117.408985); // coordinates to Spokane not gonzaga but close enough right?
+//        mMap.addMarker(new MarkerOptions().position(gonzaga).title("Here is Gonzaga!"));
+//        mMap.moveCamera(CameraUpdateFactory.newLatLng(gonzaga));
     }
 
+    /**
+     * The Alert Dialog that asks for user's permission
+     * @param requestCode
+     * @param permissions
+     * @param grantResults
+     */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -93,21 +113,41 @@ public class DirectionActivity extends AppCompatActivity implements OnMapReadyCa
         }
     }
 
+    /**
+     * Adds Marker at Gonzaga University through the use of GeoCoder so the data is dynamically sourced
+     * Moves camera so that it is at City View
+     */
+    private void addGonzagaMarker() {
+        String gonzagaStr = "Gonzaga University";
+        LatLng gonzagaLatLng = getLatLngUsingGeocoding(gonzagaStr);
+        MarkerOptions gonzagaMarkerOptions = new MarkerOptions();
+        gonzagaMarkerOptions.title(gonzagaStr);
+        gonzagaMarkerOptions.snippet("Go zags!");
+        gonzagaMarkerOptions.position(gonzagaLatLng);
+        mMap.addMarker(gonzagaMarkerOptions);
 
-//    private LatLng getLatLngUsingGeocoding(String gonzagaStr) {
-//        LatLng latLng = null;
-//        Geocoder geocoder = new Geocoder(this);
-//        try {
-//            List<Address> addressList = geocoder.getFromLocationName(gonzagaStr, 1);
-//            if (addressList != null && addressList.size() > 0) {
-//                Address addressResult = addressList.get(0);
-//                latLng = new LatLng(addressResult.getLatitude(), addressResult.getLongitude());
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return latLng;
-//    }
+        CameraUpdate gonzagaCameraUpdate = CameraUpdateFactory.newLatLngZoom(gonzagaLatLng, 15.0f);
+        mMap.moveCamera(gonzagaCameraUpdate);
+    }
+
+    /**
+     * Retrieves the Latitude and Longitude using Geocoding of Gonzaga University
+     * @return Lat and Lang of GU campus
+     */
+    private LatLng getLatLngUsingGeocoding(String gonzagaStr) {
+        LatLng latLng = null;
+        Geocoder geocoder = new Geocoder(this);
+        try {
+            List<Address> addressList = geocoder.getFromLocationName(gonzagaStr, 1);
+            if (addressList != null && addressList.size() > 0) {
+                Address addressResult = addressList.get(0);
+                latLng = new LatLng(addressResult.getLatitude(), addressResult.getLongitude());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return latLng;
+    }
 
 //    private void getLocationPermission() {
 //        /*
@@ -127,9 +167,7 @@ public class DirectionActivity extends AppCompatActivity implements OnMapReadyCa
 //    }
 
     /**
-     Gets the user's location in latitude and longitude
-     *
-     * @return n/a
+     * Gets the user's location in latitude and longitude
      */
     @Override
     public void onMyLocationClick(@NonNull Location location) {
