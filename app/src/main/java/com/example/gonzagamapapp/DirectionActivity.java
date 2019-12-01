@@ -1,4 +1,5 @@
 package com.example.gonzagamapapp;
+// https://developers.google.com/maps/documentation/urls/android-intents
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,10 +7,12 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Layout;
 import android.view.View;
@@ -56,7 +59,10 @@ public class DirectionActivity extends AppCompatActivity implements OnMapReadyCa
         navigateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(DirectionActivity.this, "pushed me!", Toast.LENGTH_SHORT).show();
+                Uri intentUri = Uri.parse("google.navigation:q=47.6664,-117.4015");
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, intentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                startActivity(mapIntent);
             }
         });
 
