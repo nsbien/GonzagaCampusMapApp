@@ -318,6 +318,6 @@ public class FindMyClasses extends AppCompatActivity {
         else if (building.equals("Rosar"))
             return 9;
         else // tilford
-            return 0;
+            return 10;
     }
 }

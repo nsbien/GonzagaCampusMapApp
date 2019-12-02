@@ -3,6 +3,7 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_directions">Map</string>
     <string-array name="buildingGU">
+        <item> </item>
         <item>College Hall</item>
         <item>Coughlin</item>
         <item>Crosby</item>
