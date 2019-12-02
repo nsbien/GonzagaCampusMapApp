@@ -12,7 +12,11 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.ArrayList;
 
 public class FindMyClassesMapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -48,24 +52,24 @@ public class FindMyClassesMapsActivity extends FragmentActivity implements OnMap
         course1 = intent.getStringExtra("course1");
         building1 = intent.getStringExtra("building1");
         room1 = intent.getStringExtra("room1");
-        course2 = intent.getStringExtra("course1");
-        building2 = intent.getStringExtra("building1");
-        room2 = intent.getStringExtra("room1");
-        course3 = intent.getStringExtra("course1");
-        building3 = intent.getStringExtra("building1");
-        room3 = intent.getStringExtra("room1");
-        course4 = intent.getStringExtra("course1");
-        building4 = intent.getStringExtra("building1");
-        room4 = intent.getStringExtra("room1");
-        course5 = intent.getStringExtra("course1");
-        building5 = intent.getStringExtra("building1");
-        room5 = intent.getStringExtra("room1");
-        course6 = intent.getStringExtra("course1");
-        building6 = intent.getStringExtra("building1");
-        room6 = intent.getStringExtra("room1");
-        course7 = intent.getStringExtra("course1");
-        building7 = intent.getStringExtra("building1");
-        room7 = intent.getStringExtra("room1");
+        course2 = intent.getStringExtra("course2");
+        building2 = intent.getStringExtra("building2");
+        room2 = intent.getStringExtra("room2");
+        course3 = intent.getStringExtra("course3");
+        building3 = intent.getStringExtra("building3");
+        room3 = intent.getStringExtra("room3");
+        course4 = intent.getStringExtra("course4");
+        building4 = intent.getStringExtra("building4");
+        room4 = intent.getStringExtra("room4");
+        course5 = intent.getStringExtra("course5");
+        building5 = intent.getStringExtra("building5");
+        room5 = intent.getStringExtra("room5");
+        course6 = intent.getStringExtra("course6");
+        building6 = intent.getStringExtra("building6");
+        room6 = intent.getStringExtra("room6");
+        course7 = intent.getStringExtra("course7");
+        building7 = intent.getStringExtra("building7");
+        room7 = intent.getStringExtra("room7");
     }
 
 
@@ -82,43 +86,44 @@ public class FindMyClassesMapsActivity extends FragmentActivity implements OnMap
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+        Log.d(TAG, "before checking if statements coure1: " + course1);
 
         // testing to see if the map will mark where the user wants (hard-coding)
         if (!course1.equals("")){
             LatLng courseOne = determineBuilding(building1);
             mMap.addMarker(new MarkerOptions().position(courseOne).title(course1 + " " + room1));
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(courseOne, 16.5f));
+            Log.d(TAG, "course1:" + course1);
         }
         if (!course2.equals("")){
             LatLng courseOne = determineBuilding(building2);
             mMap.addMarker(new MarkerOptions().position(courseOne).title(course2 + " " + room2));
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(courseOne, 16.5f));
+            Log.d(TAG, "course2:" + course2);
         }
         if (!course3.equals("")){
             LatLng courseOne = determineBuilding(building3);
             mMap.addMarker(new MarkerOptions().position(courseOne).title(course3 + " " + room3));
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(courseOne, 16.5f));
+            Log.d(TAG, "course3:" + course3);
         }
         if (!course4.equals("")){
             LatLng courseOne = determineBuilding(building4);
             mMap.addMarker(new MarkerOptions().position(courseOne).title(course4 + " " + room4));
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(courseOne, 16.5f));
         }
         if (!course5.equals("")){
             LatLng courseOne = determineBuilding(building5);
             mMap.addMarker(new MarkerOptions().position(courseOne).title(course5 + " " + room5));
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(courseOne, 16.5f));
         }
         if (!course6.equals("")){
             LatLng courseOne = determineBuilding(building6);
             mMap.addMarker(new MarkerOptions().position(courseOne).title(course6 + " " + room6));
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(courseOne, 16.5f));
         }
         if (!course7.equals("")){
             LatLng courseOne = determineBuilding(building7);
             mMap.addMarker(new MarkerOptions().position(courseOne).title(course7 + " " + room7));
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(courseOne, 16.5f));
+//            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(courseOne, 16.5f));
         }
+
+        LatLng gonzaga = new LatLng(47.6664, -117.4015);
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(gonzaga, 15.0f));
     }
 
     public LatLng determineBuilding(String building) {
