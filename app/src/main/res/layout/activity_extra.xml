@@ -11,10 +11,9 @@
     <TextView
         android:id="@+id/tex1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="12sp"
+        android:layout_height="327dp"
         android:text=""
-        />
+        android:textSize="12sp" />
 
     <Button
         android:id="@+id/but1"
