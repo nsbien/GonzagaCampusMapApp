@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -18,9 +19,9 @@ public class FindMyClassesMapsActivity extends FragmentActivity implements OnMap
     static final String TAG = "FindMyClass";
     private GoogleMap mMap;
 
-    private double coor1 = 0;
-    private double coor2 = 0;
-    private String course1;
+    private double lat1 = 0;
+    private double lng1 = 0;
+    private String course1, building1, room1;
 
     /**
      Starts google maps and displays every class that the user had inputted
@@ -39,9 +40,9 @@ public class FindMyClassesMapsActivity extends FragmentActivity implements OnMap
 
         Intent intent = getIntent();
         course1 = intent.getStringExtra("course1");
-        String building1 = intent.getStringExtra("building1");
-        String room1 = intent.getStringExtra("room1");
-//        Log.d(TAG, "Course: " + course1 + "  Building: " + building1 + "  Room: " + room1);
+        building1 = intent.getStringExtra("building1");
+        room1 = intent.getStringExtra("room1");
+        Log.d(TAG, "Course: " + course1 + "  Building: " + building1 + "  Room: " + room1);
     }
 
 
@@ -57,16 +58,25 @@ public class FindMyClassesMapsActivity extends FragmentActivity implements OnMap
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
 
         // testing to see if the map will mark where the user wants (hard-coding)
-        if(course1.equals("cpsc 223")){
-            coor1 = 47.666394;
-            coor2 = -117.402070;
+        if (building1.equals("Jepson")){
+            lat1 = 47.667134;
+            lng1 = -117.405254;
+        } else if (building1.equals("Herek")){
+            lat1 = 47.666752;
+            lng1 = -117.402116;
+        } else if (building1.equals("Paccar")){
+            lat1 = 47.666372;
+            lng1 = -117.401954;
+        } else {
+
         }
 
         // Add a marker where the first class is
-        LatLng sydney = new LatLng(coor1, coor2);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Pacaar 106"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng courseOne = new LatLng(lat1, lng1);
+        mMap.addMarker(new MarkerOptions().position(courseOne).title(course1 + " " + room1));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(courseOne, 16.5f));
     }
 }
