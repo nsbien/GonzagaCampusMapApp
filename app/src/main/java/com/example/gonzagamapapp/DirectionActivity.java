@@ -13,7 +13,6 @@ import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
-import android.location.LocationListener;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Layout;
@@ -24,6 +23,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -39,15 +40,13 @@ import java.util.List;
 
 public class DirectionActivity extends AppCompatActivity implements
         OnMapReadyCallback,
-        GoogleMap.OnMyLocationClickListener,
-        GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener,
-        LocationListener {
+        GoogleMap.OnMyLocationClickListener{
 
     static final int MY_LOCATION_REQUEST_CODE = 1;
     private GoogleMap mMap;
     private static final String TAG = DirectionActivity.class.getSimpleName();
     private CameraPosition mCameraPosition;
+    private FusedLocationProviderClient mFusedLocationProviderClient;
 
     /**
      Allows the user to input the classes that they are in with the associated building
@@ -76,6 +75,8 @@ public class DirectionActivity extends AppCompatActivity implements
         });
 
 //        mGeoDataClient = Places.getGeoDataClient(this, null);
+        mFusedLocationProviderClient =
+                LocationServices.getFusedLocationProviderClient(this);
 
     }
 
@@ -188,38 +189,4 @@ public class DirectionActivity extends AppCompatActivity implements
     }
 
 
-    @Override
-    public void onLocationChanged(Location location) {
-
-    }
-
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
-
-    }
-
-    @Override
-    public void onProviderEnabled(String provider) {
-
-    }
-
-    @Override
-    public void onProviderDisabled(String provider) {
-
-    }
-
-    @Override
-    public void onConnected(@Nullable Bundle bundle) {
-
-    }
-
-    @Override
-    public void onConnectionSuspended(int i) {
-
-    }
-
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
-    }
 }

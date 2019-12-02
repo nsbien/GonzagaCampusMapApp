@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.w3c.dom.Document;
+
 public class extraActivity extends AppCompatActivity {
 
     TextView texx;
@@ -43,7 +45,7 @@ public class extraActivity extends AppCompatActivity {
         protected Void doInBackground(Void... voids) {
 
             try {
-//                Document doc = (Document) Jsoup.connect("https://www.gonzaga.edu/").get();
+//                Document doc = Jsoup.connect("https://www.gonzaga.edu/").get();
 //                words = doc.getTextContent();
 
             }catch (Exception e){
