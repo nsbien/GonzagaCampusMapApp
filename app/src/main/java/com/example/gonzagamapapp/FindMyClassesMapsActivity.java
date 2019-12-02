@@ -1,8 +1,13 @@
 package com.example.gonzagamapapp;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -21,10 +26,9 @@ import java.util.ArrayList;
 public class FindMyClassesMapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     static final String TAG = "FindMyClass";
+    static final int MY_LOCATION_REQUEST_CODE = 1;
     private GoogleMap mMap;
 
-    private double lat1 = 0;
-    private double lng1 = 0;
     private String course1, building1, room1;
     private String course2, building2, room2;
     private String course3, building3, room3;
@@ -86,23 +90,27 @@ public class FindMyClassesMapsActivity extends FragmentActivity implements OnMap
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
-        Log.d(TAG, "before checking if statements coure1: " + course1);
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            mMap.setMyLocationEnabled(true);
+        } else {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    MY_LOCATION_REQUEST_CODE);
+        }
 
         // testing to see if the map will mark where the user wants (hard-coding)
         if (!course1.equals("")){
             LatLng courseOne = determineBuilding(building1);
             mMap.addMarker(new MarkerOptions().position(courseOne).title(course1 + " " + room1));
-            Log.d(TAG, "course1:" + course1);
         }
         if (!course2.equals("")){
             LatLng courseOne = determineBuilding(building2);
             mMap.addMarker(new MarkerOptions().position(courseOne).title(course2 + " " + room2));
-            Log.d(TAG, "course2:" + course2);
         }
         if (!course3.equals("")){
             LatLng courseOne = determineBuilding(building3);
             mMap.addMarker(new MarkerOptions().position(courseOne).title(course3 + " " + room3));
-            Log.d(TAG, "course3:" + course3);
         }
         if (!course4.equals("")){
             LatLng courseOne = determineBuilding(building4);
@@ -119,11 +127,28 @@ public class FindMyClassesMapsActivity extends FragmentActivity implements OnMap
         if (!course7.equals("")){
             LatLng courseOne = determineBuilding(building7);
             mMap.addMarker(new MarkerOptions().position(courseOne).title(course7 + " " + room7));
-//            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(courseOne, 16.5f));
         }
 
         LatLng gonzaga = new LatLng(47.6664, -117.4015);
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(gonzaga, 15.0f));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(gonzaga, 15.5f));
+    }
+
+    /**
+     * The Alert Dialog that asks for user's permission
+     * @param requestCode
+     * @param permissions
+     * @param grantResults
+     */
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == MY_LOCATION_REQUEST_CODE) {
+            if (permissions.length == 1 &&
+                    permissions[0].equals(Manifest.permission.ACCESS_FINE_LOCATION) &&
+                    grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                mMap.setMyLocationEnabled(true);
+            }
+        }
     }
 
     public LatLng determineBuilding(String building) {

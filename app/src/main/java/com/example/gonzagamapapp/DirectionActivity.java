@@ -103,10 +103,6 @@ public class DirectionActivity extends AppCompatActivity implements
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                     MY_LOCATION_REQUEST_CODE);
         }
-
-//        LatLng gonzaga = new LatLng(47.647536, -117.408985); // coordinates to Spokane not gonzaga but close enough right?
-//        mMap.addMarker(new MarkerOptions().position(gonzaga).title("Here is Gonzaga!"));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(gonzaga));
     }
 
     /**
