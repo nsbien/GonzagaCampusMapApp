@@ -102,31 +102,31 @@ public class FindMyClassesMapsActivity extends FragmentActivity implements OnMap
         // testing to see if the map will mark where the user wants (hard-coding)
         if (!course1.equals("")){
             LatLng courseOne = determineBuilding(building1);
-            mMap.addMarker(new MarkerOptions().position(courseOne).title(course1 + " Room:" + room1));
+            mMap.addMarker(new MarkerOptions().position(courseOne).title(course1 + "  Room :" + room1));
         }
         if (!course2.equals("")){
             LatLng courseOne = determineBuilding(building2);
-            mMap.addMarker(new MarkerOptions().position(courseOne).title(course2 + " Room:" + room2));
+            mMap.addMarker(new MarkerOptions().position(courseOne).title(course2 + "  Room :" + room2));
         }
         if (!course3.equals("")){
             LatLng courseOne = determineBuilding(building3);
-            mMap.addMarker(new MarkerOptions().position(courseOne).title(course3 + " Room:" + room3));
+            mMap.addMarker(new MarkerOptions().position(courseOne).title(course3 + "  Room :" + room3));
         }
         if (!course4.equals("")){
             LatLng courseOne = determineBuilding(building4);
-            mMap.addMarker(new MarkerOptions().position(courseOne).title(course4 + " Room:" + room4));
+            mMap.addMarker(new MarkerOptions().position(courseOne).title(course4 + "  Room :" + room4));
         }
         if (!course5.equals("")){
             LatLng courseOne = determineBuilding(building5);
-            mMap.addMarker(new MarkerOptions().position(courseOne).title(course5 + " Room:" + room5));
+            mMap.addMarker(new MarkerOptions().position(courseOne).title(course5 + "  Room :" + room5));
         }
         if (!course6.equals("")){
             LatLng courseOne = determineBuilding(building6);
-            mMap.addMarker(new MarkerOptions().position(courseOne).title(course6 + " Room:" + room6));
+            mMap.addMarker(new MarkerOptions().position(courseOne).title(course6 + "  Room :" + room6));
         }
         if (!course7.equals("")){
             LatLng courseOne = determineBuilding(building7);
-            mMap.addMarker(new MarkerOptions().position(courseOne).title(course7 + " Room:" + room7));
+            mMap.addMarker(new MarkerOptions().position(courseOne).title(course7 + "  Room :" + room7));
         }
 
         LatLng gonzaga = new LatLng(47.6664, -117.4015);
