@@ -1,5 +1,7 @@
 package com.example.gonzagamapapp;
 
+// https://developers.google.com/maps/documentation/android-sdk/views
+
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -16,6 +18,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
@@ -99,7 +102,6 @@ public class FindMyClassesMapsActivity extends FragmentActivity implements OnMap
                     MY_LOCATION_REQUEST_CODE);
         }
 
-        // testing to see if the map will mark where the user wants (hard-coding)
         if (!course1.equals("")){
             LatLng courseOne = determineBuilding(building1);
             mMap.addMarker(new MarkerOptions().position(courseOne).title(course1).snippet(building1 + " " + room1));
@@ -130,7 +132,14 @@ public class FindMyClassesMapsActivity extends FragmentActivity implements OnMap
         }
 
         LatLng gonzaga = new LatLng(47.6664, -117.4015);
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(gonzaga, 15.3f));
+        CameraPosition cameraPosition = new CameraPosition.Builder()
+                .target(gonzaga)
+                .zoom(15)
+                .bearing(0)
+                .tilt(60)
+                .build();
+        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+//        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(gonzaga, 15.3f));
     }
 
     /**
