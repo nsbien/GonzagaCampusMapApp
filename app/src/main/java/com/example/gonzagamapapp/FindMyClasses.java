@@ -1,23 +1,14 @@
 package com.example.gonzagamapapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import java.util.List;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class FindMyClasses extends AppCompatActivity {
 
@@ -121,6 +112,11 @@ public class FindMyClasses extends AppCompatActivity {
             EditText room7 = (EditText) findViewById(R.id.course7);
             room7.setText(savedInstanceState.getString("save_room7"));
             SAVE_ROOM7 = savedInstanceState.getString("save_room7");
+
+
+
+            ClassesOpenHelper openHelper = new ClassesOpenHelper(this);
+            
         }
 
         ImageView backButton = (ImageView) findViewById(R.id.backButton1);
