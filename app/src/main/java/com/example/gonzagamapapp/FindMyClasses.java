@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
@@ -116,7 +117,17 @@ public class FindMyClasses extends AppCompatActivity {
 
 
             ClassesOpenHelper openHelper = new ClassesOpenHelper(this);
-            
+            Classes classes = new Classes("Android App", "12345", "Pacaar", "105");
+
+            SimpleCursorAdapter cursorAdapter = new SimpleCursorAdapter(
+                    this,
+                    android.R.layout.simple_list_item_1,
+                    openHelper.getSelectAllClassesCursor(),
+                    new String[] {ClassesOpenHelper.TITLE},
+                    new int[] {android.R.id.text1},
+                    0
+            );
+
         }
 
         ImageView backButton = (ImageView) findViewById(R.id.backButton1);

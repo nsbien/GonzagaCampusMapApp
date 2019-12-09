@@ -1,6 +1,7 @@
 package com.example.gonzagamapapp;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -35,4 +36,14 @@ public class ClassesOpenHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+
+    public Cursor getSelectAllClassesCursor(){
+
+        String sqlSelect = "SELECT * FROM " + TABLE_CLASSES;
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery(sqlSelect, null);
+
+        return cursor;
+    }
 }
+
