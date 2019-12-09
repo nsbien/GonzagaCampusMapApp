@@ -90,7 +90,7 @@
         android:fontFamily="sans-serif-light"
         android:textColor="@color/colorWhite"
         android:textSize="18sp"
-        android:text="Extras" />
+        android:text="messaging" />
 
     <TextView
         android:id="@+id/abouMeText"
@@ -101,6 +101,6 @@
         android:layout_gravity="center_horizontal"
         android:gravity="center"
         android:fontFamily="serif-monospace"
-        android:text="about gonzaga" />
+        android:text="sko zags" />
 
 </GridLayout>

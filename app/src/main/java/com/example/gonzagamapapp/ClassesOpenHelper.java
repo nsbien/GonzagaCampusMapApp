@@ -1,5 +1,9 @@
 package com.example.gonzagamapapp;
 
+/**
+ * Class that creates the database for a users class
+ */
+
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;

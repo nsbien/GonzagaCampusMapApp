@@ -1,8 +1,10 @@
 package com.example.gonzagamapapp;
-// https://developers.google.com/maps/documentation/urls/android-intents
+/**
+ * Activity that handles the users location and maps them to Gonzaga Campus
+ * sources to cite: https://developers.google.com/maps/documentation/urls/android-intents
+ */
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -15,15 +17,11 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.Layout;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.GridLayout;
 import android.widget.Toast;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -37,9 +35,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -54,7 +50,6 @@ public class DirectionActivity extends AppCompatActivity implements
     static final int MY_LOCATION_REQUEST_CODE = 1;
     private GoogleMap mMap;
     private static final String TAG = DirectionActivity.class.getSimpleName();
-    private CameraPosition mCameraPosition;
     private FusedLocationProviderClient mFusedLocationProviderClient;
     static final int LOCATION_REQUEST_CODE = 1;
 
@@ -84,7 +79,6 @@ public class DirectionActivity extends AppCompatActivity implements
             }
         });
 
-//        mGeoDataClient = Places.getGeoDataClient(this, null);
         mFusedLocationProviderClient =
                 LocationServices.getFusedLocationProviderClient(this);
 
@@ -120,38 +114,17 @@ public class DirectionActivity extends AppCompatActivity implements
 
 
     private void setupLastKnownLocation() {
-        // implementing approach (1.)
-        // starting with api level 23, at runtime we have to request/make sure
-        // we have permission to access the users location
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-
-            // we don't have permission to access the user's location
-            // we need to request it
             ActivityCompat.requestPermissions(this,
                     new String[] {Manifest.permission.ACCESS_FINE_LOCATION},
                     LOCATION_REQUEST_CODE);
-            // shows a dialog for the user to select allow or deny for location permission
-            // we need to override a callback that executes once the user makes their choice
         } else {
-            // we have permission!!! to access the user's location
             Task<Location> locationTask = mFusedLocationProviderClient.getLastLocation();
-            // add a complete/successful/failure listener so we know when the task is done
             locationTask.addOnSuccessListener(new OnSuccessListener<Location>() {
                 @Override
                 public void onSuccess(Location location) {
-                    // at this point the parameter location should store
-                    // the users last known location
-                    // location could be null if the device does not have a last known location
                     if (location != null) {
-                        // we have it finally!
                         Log.d(TAG, "onSuccess: " + location.getLatitude() + ", " + location.getLongitude());
                     }
                 }
@@ -163,9 +136,9 @@ public class DirectionActivity extends AppCompatActivity implements
 
     private void setupUserLocationUpdates() {
         final LocationRequest locationRequest = new LocationRequest();
-        locationRequest.setInterval(10000); // request an update every 10 seconds
-        locationRequest.setFastestInterval(5000); // handle at most updates every 5 seconds
-        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY); // most precise
+        locationRequest.setInterval(10000);
+        locationRequest.setFastestInterval(5000);
+        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 
         LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder();
         builder.addLocationRequest(locationRequest);
@@ -175,8 +148,6 @@ public class DirectionActivity extends AppCompatActivity implements
         task.addOnSuccessListener(this, new OnSuccessListener<LocationSettingsResponse>() {
             @Override
             public void onSuccess(LocationSettingsResponse locationSettingsResponse) {
-                // All location settings are satisfied. The client can initialize
-                // location requests here.
                 LocationCallback locationCallback = new LocationCallback() {
                     @Override
                     public void onLocationResult(LocationResult locationResult) {
@@ -209,11 +180,9 @@ public class DirectionActivity extends AppCompatActivity implements
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        // this method executes when the user responds to the permissions dialog
         if (requestCode == LOCATION_REQUEST_CODE) {
             if (grantResults.length > 0 &&
                     grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // we have the user's permission!!
                 setupLastKnownLocation();
             }
         }

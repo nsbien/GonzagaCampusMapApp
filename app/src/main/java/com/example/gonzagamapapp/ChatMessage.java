@@ -1,5 +1,9 @@
 package com.example.gonzagamapapp;
 
+/**
+ * Class that holds information about a users chat message
+ */
+
 public class ChatMessage {
     private String author;
     private String content;

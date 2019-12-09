@@ -1,5 +1,9 @@
 package com.example.gonzagamapapp;
 
+/**
+ * Class that holds information about a users class/schedule
+ */
+
 public class Classes {
 
     private int id;

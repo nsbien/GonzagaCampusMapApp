@@ -1,6 +1,9 @@
 package com.example.gonzagamapapp;
 
-// https://developers.google.com/maps/documentation/android-sdk/views
+/**
+ * Activity that handles the users inputed courses and maps it out on Gonzaga's campus accordingly
+ * sources to cite: https://developers.google.com/maps/documentation/android-sdk/views
+ */
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
