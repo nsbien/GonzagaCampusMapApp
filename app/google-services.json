@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "787371511010",
+    "firebase_url": "https://gonzagacampusmap-1575072397309.firebaseio.com",
+    "project_id": "gonzagacampusmap-1575072397309",
+    "storage_bucket": "gonzagacampusmap-1575072397309.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:787371511010:android:36b7eff3427cdeb7fd62bb",
+        "android_client_info": {
+          "package_name": "com.example.gonzagamapapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "787371511010-smvqkqoga91012qm6gb6dsm51l27f3sq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfEu4REhARrynQtb-hOu5KkPOjG-C1b_k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "787371511010-smvqkqoga91012qm6gb6dsm51l27f3sq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
