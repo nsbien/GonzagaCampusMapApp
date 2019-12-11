@@ -75,7 +75,7 @@
         android:fontFamily="sans-serif-light"
         android:textColor="@color/colorWhite"
         android:textSize="18sp"
-        android:text="Zag Web"
+        android:text="ZagWeb"
         />
 
     <Button
