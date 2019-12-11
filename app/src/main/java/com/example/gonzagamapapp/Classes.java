@@ -15,15 +15,13 @@ public class Classes {
     public Classes(){
         id = -1; // determined later by database table insertion order
         title = "Android App Development";
-        crnNumber = "12345";
         building = "pacaar";
         roomNumber = "106";
     }
 
-    public Classes(String title, String crnNumber, String building, String roomNumber){
+    public Classes(String title, String building, String roomNumber){
         this();
         this.title = title;
-        this.crnNumber = crnNumber;
         this.building = building;
         this.roomNumber = roomNumber;
     }
@@ -31,7 +29,6 @@ public class Classes {
     public Classes(int id, String title, String crnNumber, String building, String roomNumber){
         this.id = id;
         this.title = title;
-        this.crnNumber = crnNumber;
         this.building = building;
         this.roomNumber = roomNumber;
     }
@@ -55,14 +52,6 @@ public class Classes {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getCrnNumber() {
-        return crnNumber;
-    }
-
-    public void setCrnNumber(String crnNumber) {
-        this.crnNumber = crnNumber;
     }
 
     public String getBuilding() {

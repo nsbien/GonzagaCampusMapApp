@@ -17,7 +17,6 @@ public class ClassesOpenHelper extends SQLiteOpenHelper {
     static final String TABLE_CLASSES = "tableClasses";
     static final String ID = "_id";
     static final String TITLE = "title";
-    static final String CRN = "crnNumber";
     static final String BUILDING = "building";
     static final String ROOM_NUMBER = "roomNumber";
 
@@ -30,9 +29,9 @@ public class ClassesOpenHelper extends SQLiteOpenHelper {
         String sqlCreate = "CREATE TABLE " + TABLE_CLASSES + "(" +
                 ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 TITLE + " TEXT, " +
-                CRN + " TEXT, " +
                 BUILDING + " TEXT, " +
                 ROOM_NUMBER + " TEXT)";
+
         sqLiteDatabase.execSQL(sqlCreate);
     }
 
@@ -48,6 +47,24 @@ public class ClassesOpenHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(sqlSelect, null);
 
         return cursor;
+    }
+
+    public void insertContact(Classes classes){
+        String sqlInsert = "INSERT INTO " + TABLE_CLASSES + " VALUES(null, '" +
+                classes.getTitle() + "', '" + classes.getBuilding() +
+                "', '" + classes.getRoomNumber() +"')";
+
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL(sqlInsert);
+        db.close();
+    }
+
+    public void deleteAllClasses(){
+        String sqlDelete = "DELETE FROM " + TABLE_CLASSES;
+
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL(sqlDelete);
+        db.close();
     }
 }
 

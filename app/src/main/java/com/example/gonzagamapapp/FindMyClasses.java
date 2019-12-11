@@ -145,6 +145,12 @@ public class FindMyClasses extends AppCompatActivity {
                 intent.putExtra("course7", course7);
                 intent.putExtra("building7", building7);
                 intent.putExtra("room7", room7);
+
+                ClassesOpenHelper openHelper = new ClassesOpenHelper(FindMyClasses.this);
+                Classes classes = new Classes("woah", "woah", "woah");
+                openHelper.insertContact(classes);
+
+
                 startActivity(intent);
             }
         });
